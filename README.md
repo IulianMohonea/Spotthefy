@@ -1,1 +1,1 @@
-﻿# Spotthefy - Copie spotify pentru tema 1 la PAO. 
+﻿# Spotthefy - Copie spotify pentru tema 1 la PAO.
