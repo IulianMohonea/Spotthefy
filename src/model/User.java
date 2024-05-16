@@ -4,11 +4,11 @@ import java.util.*;
 
 public class User {
     private String name;
-    private Liked_songs liked_songs;
+    private LikedSongs likedSongs;
 
-    public User(String name, Liked_songs liked_songs) {
+    public User(String name, LikedSongs likedSongs) {
         this.name = name;
-        this.liked_songs = liked_songs;
+        this.likedSongs = likedSongs;
     }
 
     public String getName() {
@@ -17,12 +17,12 @@ public class User {
 
     public void addSongToLikedSongs(Song song) {
 
-        liked_songs.getSongs().add(song);
+        likedSongs.getSongs().add(song);
     }
-    public Liked_songs forPremium (){
-        return liked_songs;
+    public LikedSongs forPremium (){
+        return likedSongs;
     }
     public List<Song> getLikedSongs() {
-        return liked_songs.getSongs();
+        return likedSongs.getSongs();
     }
 }

@@ -7,14 +7,15 @@ import java.time.LocalDate;
 public class UserService {
 
     private List<User> users;
-    private List<User_Premium> users_premium;
+    private List<UserPremium> usersPremium;
 
     public UserService() {
 
     }
+    
     public String addUser (String name){
-        Liked_songs liked_songs = new Liked_songs(new ArrayList<>());
-        User user = new User (name, liked_songs);
+        LikedSongs likedSongs = new LikedSongs(new ArrayList<>());
+        User user = new User (name, likedSongs);
         if (users == null) {
             users = new ArrayList<>();
         }
@@ -23,10 +24,10 @@ public class UserService {
         return "The user has been added succesfully!";
     }
     public int numberOfPremiums(){
-        if (users_premium == null) {
+        if (usersPremium == null) {
             return 0;
         }
-        return users_premium.size();
+        return usersPremium.size();
 
     }
     public void addSongToLikedSongs(User user, Song song) {
@@ -77,12 +78,13 @@ public class UserService {
             LocalDate startdate = LocalDate.now();
             LocalDate enddate = startdate.plusMonths(1);
             Subscription subscription = new Subscription(startdate, enddate, null);
-            User_Premium user_premium = new User_Premium(user.getName(), user.forPremium(), subscription);
-            if (users_premium == null) {
-                users_premium = new ArrayList<>();
+            UserPremium userPremium = new UserPremium(user.getName(), user.forPremium(), subscription);
+            if (usersPremium == null) {
+                usersPremium = new ArrayList<>();
             }
+            
 
-            users_premium.add(user_premium);
+            usersPremium.add(userPremium);
     }
 
 }
