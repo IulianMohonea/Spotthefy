@@ -1,0 +1,38 @@
+CREATE TABLE User (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    status VARCHAR(50)
+);
+
+CREATE TABLE Artist (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Song (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    genre VARCHAR(100),
+    artist_id INT,
+    FOREIGN KEY (artist_id) REFERENCES Artist(id)
+);
+
+CREATE TABLE Album (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    year INT,
+    artist_id INT,
+    FOREIGN KEY (artist_id) REFERENCES Artist(id)
+);
+
+CREATE TABLE Liked_Songs (
+    user_id INT,
+    song_id INT,
+    PRIMARY KEY (user_id, song_id),
+    FOREIGN KEY (user_id) REFERENCES User(id),
+    FOREIGN KEY (song_id) REFERENCES Song(id)
+);
+
+
+
+
